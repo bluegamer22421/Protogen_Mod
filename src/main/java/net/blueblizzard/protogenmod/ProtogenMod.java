@@ -21,15 +21,14 @@ import org.slf4j.Logger;
 @Mod(ProtogenMod.MOD_ID)
 public class ProtogenMod
 {
-    // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "protogen_mod";
-    // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
+
     public ProtogenMod(FMLJavaModLoadingContext context)
     {
         IEventBus modEventBus = context.getModEventBus();
 
-        // Register the commonSetup method for modloading
+
         modEventBus.addListener(this::commonSetup);
 
 
