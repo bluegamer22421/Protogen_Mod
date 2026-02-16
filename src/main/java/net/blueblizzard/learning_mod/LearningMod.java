@@ -1,7 +1,11 @@
-package net.blueblizzard.protogenmod;
+package net.blueblizzard.learning_mod;
 
 import com.mojang.logging.LogUtils;
+import net.blueblizzard.learning_mod.block.ModBlocks;
+import net.blueblizzard.learning_mod.item.ModCreativeModTabs;
+import net.blueblizzard.learning_mod.item.ModItems;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -18,16 +22,20 @@ import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(ProtogenMod.MOD_ID)
-public class ProtogenMod
+@Mod(LearningMod.MOD_ID)
+public class LearningMod
 {
-    public static final String MOD_ID = "protogen_mod";
+    public static final String MOD_ID = "learning_mod";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public ProtogenMod(FMLJavaModLoadingContext context)
+    public LearningMod(FMLJavaModLoadingContext context)
     {
         IEventBus modEventBus = context.getModEventBus();
 
+        ModCreativeModTabs.register(modEventBus);
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -58,7 +66,9 @@ public class ProtogenMod
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
+            event.accept(ModItems.RAM);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

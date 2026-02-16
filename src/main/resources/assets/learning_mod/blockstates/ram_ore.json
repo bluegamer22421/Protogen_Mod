@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "learning_mod:block/ram_ore"
+    }
+  }
+}

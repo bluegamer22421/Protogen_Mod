@@ -1,2 +1,8 @@
-// 10.02.2026 Begin Development of my version of Protogen mod
+// 10.02.2026 Begin Development of my version of Mod Learning
 // Goals: Add custom RAM item and create a RAM BLOCK
+// 13.02.2026 got a bit lazy, created RAM and RAM ore textures, might implement them today.
+// I realized this mod is not going be grandiose but a prototype of my bigger project.
+// Goals: Implement Ram item and Ram ore but dont make it generate yet
+// 13.02.2026 Implemented Ram item
+// 16.02.2026 Implemented Ram Ore Block, I hate that I get off for so long.
+// Atleast i keep working on the mod ehh.
